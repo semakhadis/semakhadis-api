@@ -19,11 +19,11 @@ class CreateFilesTable extends Migration
             $table->string('mime',20)->comment('type of files');
             $table->string('path',255)->comment('path of the file in the storage');
             $table->string('thumbnail_path',255)->comment('path of the file thumbnail in the storage, if not image, use logo of mime instead');
-            $table->string('type',15)->nullable();
             $table->string('description',100)->nullable()->comment('Notes for the files');
             $table->integer('created_by')->comment('The user who upload the file- FK users');
-            $table->integer('reference_id')->nullable()->comment('The reference id of the class');
-            $table->string('reference_type',50)->nullable()->comment('the reference class');
+            // $table->integer('reference_id')->nullable()->comment('The reference id of the class');
+            // $table->string('reference_type',50)->nullable()->comment('the reference class');
+            $table->morphs('referenceable')->comment('the reference class');
             $table->timestamps();
         });
     }
