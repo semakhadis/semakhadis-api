@@ -13,17 +13,18 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $contents = database_path('seeds\seeder_csv\user_seeder.csv');
-        Excel::load($contents)->each(function (Collection $csvLine) {
-            $user = User::firstOrNew([
-                'name' => $csvLine->get('name'),
-                'email' => $csvLine->get('email'),
-                'fullname'=>$csvLine->get('fullname'),
-                'roles_id'=>$csvLine->get('roles_id'),
-            ]);
-            $user->password = bcrypt(explode('@',$csvLine->get('name'))[0] . '18!');
-            $user->save();
-
+        $content = database_path('seeds\seeder_csv\user_seeder.csv');
+        Excel::selectSheets('users')->load($content, function ($csvLine) {
+            foreach($csvLine->all() as $user_data){
+                $user = User::firstOrNew([
+                    'name' => $user_data->name,
+                    'email' => $user_data->email,
+                    'fullname'=>$user_data->fullname,
+                    'roles_id'=>$user_data->roles_id,
+                ]);
+                $user->password = bcrypt(explode('@',$user_data->name)[0] . '18!');
+                $user->save();
+            }
     	});
     }
 }

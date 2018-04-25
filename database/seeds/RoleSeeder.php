@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
-use App\Role;
+use App\Http\Models\Role;
 
 class RoleSeeder extends Seeder
 {
@@ -13,15 +13,16 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $contents = database_path('seeds\seeder_csv\role_seeder.csv');
-        Excel::load($contents)->each(function (Collection $csvLine) {
-            $role = Role::firstOrNew([
-                'name' => $csvLine->get('name'),
-                'slug' => $csvLine->get('slug'),
-                'description'=>$csvLine->get('description')
-            ]);
-            $role->save();
-
-    	});
+        $content = database_path('seeds\seeder_csv\role_seeder.csv');
+        Excel::selectSheets('role_seeder')->load($content, function ($csvLine) {
+            foreach($csvLine->all() as $role_data){
+                $role = role::firstOrNew([
+                    'name' => $role_data->name,
+                    'slug' => $role_data->slug,
+                    'description' => $role_data->description,
+                ]);
+                $role->save();
+            }
+        });
     }
 }

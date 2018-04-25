@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
-use App\Hadith;
+use App\Http\Models\Hadith;
 
 class HadithSeeder extends Seeder
 {

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
-use App\Report;
+use App\Http\Models\Report;
 
 class ReportSeeder extends Seeder
 {
@@ -13,19 +13,20 @@ class ReportSeeder extends Seeder
      */
     public function run()
     {
-        $contents = database_path('seeds\seeder_csv\report_seeder.csv');
-        Excel::load($contents)->each(function (Collection $csvLine) {
-            $report = Report::firstOrNew([
-                'title' => $csvLine->get('title'),
-                'description' => $csvLine->get('description'),
-                'reference'=>$csvLine->get('reference'),
-                'status'=>$csvLine->get('status'),
-                'created_by'=>$csvLine->get('created_by'),
-                'rejected_by'=>$csvLine->get('rejected_by'),
-                'approved_by'=>$csvLine->get('approved_by'),
-            ]);
-            $report->save();
-
-    	});
+        $content = database_path('seeds\seeder_csv\report_seeder.csv');
+        Excel::selectSheets('report_seeder')->load($content, function ($csvLine) {
+            foreach($csvLine->all() as $report_data){
+                $report = report::firstOrNew([
+                    'title' => $report_data->title,
+                    'email' => $report_data->email,
+                    'description' => $report_data->description,
+                    'status' => $report_data->status,
+                    'hadiths_id' => $report_data->hadiths_id,
+                    'created_by'=>$report_data->created_by
+                    'closed_at'=>$report_data->closed_at
+                ]);
+                $report->save();
+            }
+        });
     }
 }
