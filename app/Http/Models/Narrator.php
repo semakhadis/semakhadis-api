@@ -12,6 +12,6 @@ class Narrator extends Model
 
     public function Hadiths()
     {
-    	return $this->hasMany('App\Http\Models\HadithNarrator','narrators_id')
+    	return $this->hasMany('App\Http\Models\HadithNarrator','narrators_id');
     }
 }

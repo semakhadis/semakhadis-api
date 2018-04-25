@@ -4,7 +4,7 @@ namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Reference extends Model
 {
     protected $fillable = [
         'title', 'description', 'author',
@@ -12,6 +12,6 @@ class Book extends Model
 
     public function Hadiths()
     {
-    	return $this->hasMany('App\Http\Models\HadithBook','books_id')
+    	return $this->hasMany('App\Http\Models\HadithBook','books_id');
     }
 }
