@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * This file is the migration for reports
+ *
+ * @author     mrdeng <mohdizzudinrazali@gmail.com>
+ */
+
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;

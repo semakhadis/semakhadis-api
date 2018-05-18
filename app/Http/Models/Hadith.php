@@ -8,7 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Hadith extends Model
 {
     protected $fillable = [
-    'title', 'description', 'author',
+        'title', 
+        'slug', 
+        'text_malay', 
+        'text_arab', 
+        'description', 
+        'hadith_statuses_id', 
+        'hadith_progress_statuses_id', 
+        'created_by', 
     ];
 
     public function setCreatedByAtAttribute($user_id)

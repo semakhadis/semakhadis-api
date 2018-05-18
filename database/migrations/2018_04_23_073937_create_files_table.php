@@ -15,7 +15,7 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',100)->comment('the file name based on title wte');
+            $table->string('file_name',100)->comment('the file name based on title wte');
             $table->string('mime',20)->comment('type of files');
             $table->string('path',255)->comment('path of the file in the storage');
             $table->string('thumbnail_path',255)->comment('path of the file thumbnail in the storage, if not image, use logo of mime instead');

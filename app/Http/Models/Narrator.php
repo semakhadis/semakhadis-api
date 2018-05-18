@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Narrator extends Model
 {
     protected $fillable = [
-        'name', 'fullname', 'info',
+        'name', 'full_name', 'info', 'slug'
     ];
 
     public function Hadiths()

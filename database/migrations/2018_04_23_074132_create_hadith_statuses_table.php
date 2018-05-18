@@ -15,8 +15,8 @@ class CreateHadithStatusesTable extends Migration
     {
         Schema::create('hadith_statuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('status', 20)->comment('FK hadith_statuses - 1: draft/sahih/tidak sahih/palsu/hasan/dhaif/maudhu');
-            $table->string('slug', 22);
+            $table->string('status', 20)->unique()->comment('FK hadith_statuses - 1: draft/sahih/tidak sahih/palsu/hasan/dhaif/maudhu');
+            $table->string('slug', 22)->unique();
             $table->timestamps();
         });
     }

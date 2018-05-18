@@ -4,10 +4,10 @@ namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Reference extends Model
+class Reference extends Model 
 {
     protected $fillable = [
-        'title', 'description', 'author',
+        'title', 'description', 'author', 'slug'
     ];
 
     public function Hadiths()

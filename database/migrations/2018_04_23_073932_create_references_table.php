@@ -16,7 +16,7 @@ class CreateReferencesTable extends Migration
         Schema::create('references', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title',255);
-            $table->string('slug',255);
+            $table->string('slug',255)->unique();
             $table->text('description')->nullable();
             $table->string('author',120)->nullable();
             $table->timestamps();
