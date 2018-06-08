@@ -15,6 +15,8 @@ class CreateHadithTagsTable extends Migration
     {
         Schema::create('hadith_tags', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('hadiths_id');
+            $table->integer('tags_id');
             $table->timestamps();
         });
     }

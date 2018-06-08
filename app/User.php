@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+// use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -16,7 +16,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'fullname',
+        'name', 'email', 'password', 'fullname','roles_id',
     ];
 
     /**
@@ -30,7 +30,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function Role()
     {
-        return $this->hasOne('App\Http\Models\Role','roles_id');
+        return $this->belongsTo('App\Http\Models\Role','roles_id');
     }
     
 }

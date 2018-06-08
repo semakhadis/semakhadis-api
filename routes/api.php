@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'cors', 'prefix' => '/v1'], function () {
     // Route::get('/user')
     // Route::get('reference/{slug}', ['as'=>'reference.slug','uses'=>'ReferenceController@getReferenceBySlug']);
+    Route::apiResource('hadith-progress-status', 'HadithProgressStatusController');
+    Route::apiResource('hadith-status', 'HadithStatusController');
+    Route::apiResource('user', 'UserController');
     Route::apiResource('hadith', 'HadithController');
     Route::apiResource('narrator', 'NarratorController');
     Route::apiResource('tag', 'TagController');

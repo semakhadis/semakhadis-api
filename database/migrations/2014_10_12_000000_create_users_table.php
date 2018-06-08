@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name', 12);
             $table->string('email',120)->unique();
             $table->string('password');
-            $table->string('fullname',120);
+            $table->string('fullname',120)->nullable();
+            $table->string('access_token',120)->comment("Token to access the api, applied after logged in");
             $table->integer('roles_id')->comment("FK roles");
-            $table->rememberToken();
             $table->timestamps();
         });
     }

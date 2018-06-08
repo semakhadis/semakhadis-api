@@ -10,6 +10,10 @@ class Role extends Model
         'name', 'slug', 'description',
     ];
 
+    protected $hidden = [
+        'created_at','updated_at',
+    ];
+
     public function Users()
     {
     	return $this->belongsTo('App\Users','roles_id');

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HadithRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,9 @@ class HadithRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            // 'slug' => 'required|unique:hadiths',
-            'text_malay' => 'required',
-            'text_arab' => 'required',
-            'description' => 'required'
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
         ];
     }
 }

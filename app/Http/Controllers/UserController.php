@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Hash;
+use App\Http\Resources\UserResource;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -13,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+      return UserResource::collection(User::all());
     }
 
     /**
@@ -24,7 +28,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $user = User::create([
+          'name' => $request->name,
+          'email' => $request->email,
+          'password' => Hash::make($request->password),
+          'fullname' => $request->fullname,
+          'roles_id' => $request->roles_id,
+      ]);
+      $user->role;
+      return new UserResource($user);
+
     }
 
     /**
@@ -33,9 +46,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        $user->role;
+        return new UserResource($user);
     }
 
     /**
@@ -45,9 +59,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+      $user->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'fullname' => $request->fullname,
+        'roles_id' => $request->roles_id,
+      ]);
+      $user->role;
+      return new UserResource($user);
     }
 
     /**
@@ -56,8 +78,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+      $user->delete();
+
+      return response()->json(["Content has been deleted"], 204);
     }
 }

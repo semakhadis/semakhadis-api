@@ -162,8 +162,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        Barryvdh\Cors\ServiceProvider::class
-
+        Barryvdh\Cors\ServiceProvider::class,
     ],
 
     /*
@@ -216,8 +215,6 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         "cors" => \Barryvdh\Cors\HandleCors::class,
-
-
     ],
 
 ];

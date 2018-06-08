@@ -18,10 +18,29 @@ class Hadith extends Model
         'created_by', 
     ];
 
-    public function setCreatedByAtAttribute($user_id)
+        /**
+     * Boot function for using with User Events
+     *
+     * @return void
+     */
+    protected static function boot()
     {
-    	if(isset($user_id))
-        	$this->attributes['created_by'] = Auth::user()->id;;
+        parent::boot();
+
+        static::creating(function ($model)
+        {
+            $model->setSlugAttribute();
+        });
+
+        static::updating(function ($model)
+        {
+            $model->setSlugAttribute();
+        });
+    }
+
+    public function setSlugAttribute()
+    {
+      $this->attributes['slug'] = str_replace(' ','-', strtolower($this->attributes['title']));
     }
     
     public function setStatusAtAttribute($status)
@@ -46,26 +65,31 @@ class Hadith extends Model
 
     public function Narrators()
     {
-        return $this->hasMany('App\Http\Models\HadithNarrator','hadiths_id');
+        return $this->belongsToMany('App\Http\Models\Narrator','hadith_narrators', 'hadiths_id', 'narrators_id')->withTimestamps();
     }
 
-    public function Books()
+    public function References()
     {
-        return $this->hasMany('App\Http\Models\HadithBook','books_id');
+        return $this->belongsToMany('App\Http\Models\Reference','hadith_references', 'hadiths_id', 'references_id')->withTimestamps();
+    }
+
+    public function HadithStatus()
+    {
+        return $this->belongsTo('App\Http\Models\HadithStatus','hadith_statuses_id');
+    }
+
+    public function HadithProgressStatus()
+    {
+        return $this->belongsTo('App\Http\Models\HadithProgressStatus','hadith_progress_statuses_id');
     }
 
     public function CreatedBy()
     {
-        return $this->hasOne('App\User','created_by');
+        return $this->belongsTo('App\User','created_by');
     }
 
-    public function ApprovedBy()
+    public function Tags()
     {
-        return $this->hasOne('App\User','approved_by');
-    }
-
-    public function RejectedBy()
-    {
-        return $this->hasOne('App\User','rejected_by');
+        return $this->belongsToMany('App\Http\Models\Tag','hadith_tags', 'hadiths_id', 'tags_id')->withTimestamps();
     }
 }
