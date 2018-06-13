@@ -1,0 +1,32 @@
+[
+    {
+        "timestamp" : "25/03/2018  11:13:47 PM",
+        "teks_arab" : "قِيلَ يَا رَسُولَ اللَّهِ مِمَّ رَبُّنَا؟ قَالَ مِنْ مَاءٍ مَرُورٍ لَا مِنْ أَرْضٍ وَلا سَمَاءَ خَلَقَ خَيْلا فَأَجْرَاهَا فَعَرِقَتْ فَخَلَقَ نَفْسَهُ مِنْ ذَلِكَ الْعَرَقِ",
+        "teks_melayu" : "Wahai Rasulullah dari apakah (dijadikan) tuhan kita? Dari air yang mengalir bukan dari tanah dan bukan dari langit, DIA menciptakan sekawanan kuda lalu kuda itu berlarilah, lalu mengeluarkan peluh maka DIA menciptakan diriNYA dari peluh tersebut.",
+        "perawi" : "Abu Hurairah",
+        "bab" : ["Bab Iman"],
+        "kata kunci" : ["tuhan"],
+        "status" : "Palsu",
+        "komen" : "Perawi hadith yang bernama Al-Tsalji adalah pereka hadith palsu semoga Allah melaknat diatas perbuatannya"
+    },
+    {
+        "timestamp" : "25/03/2018  11:19:07 PM",
+        "teks_arab" : "مَنْ قَالَ الْقُرْآنُ مَخْلُوقٌ فَقَدْ كَفَرَ",
+        "teks_melayu" : "Sesiapa yang mengatakan Al-Quran adalah makhluk, sesungguhnya dia telah kafir",
+        "perawi" : "Jabir",
+        "bab" : ["Bab Quran"],
+        "kata kunci" : ["Quran"],
+        "status" : "Tidak Sahih",
+        "komen" : "Hadith ini tidak sahih kerana ada seorang perawi bernama Muhammad al-Samarqandi"
+    },
+    {
+        "timestamp" : "25/03/2018  11:28:08 PM",
+        "teks_arab" : "كُلُّ مَا فِي السَّمَوَاتِ وَالأَرْضِ وَمَا بَيْنَهُمَا فَهُوَ مَخْلُوقٌ غَيْرَ اللَّهِ، وَالْقُرْآنِ وَذَلِكَ أَنَّهُ كَلامُهُ مِنْهُ بَدَأَ وَإِلَيْهِ يعود وسيجئ أَقْوَامٌ مِنْ أُمَّتِي يَقُولُونَ الْقُرْآنُ مَخْلُوقٌ فَمَنْ قَالَهُ مِنْهُمْ فَقَدْ كَفَرَ بِاللَّهِ الْعَظِيمِ وَطُلِّقَتِ امْرَأَتُهُ مِنْ سَاعَتِهِ، لأَنَّهُ لَا يَنْبَغِي لِمُؤْمِنَةٍ أَنْ تَكُونَ تَحْتَ كَافِرٍ إِلا أَنْ تَكُونَ سَبَقَتْهُ بِالْقَوْلِ",
+        "teks_melayu" : "Setiap yang berada di langit dan bumi dan antara keduanya adalah makhluk kecuali Allah, dan Al-Quran itu adalah kalamNYA,dariNYA permulaan dan kepadanya kembali dan akan datang dari kalangan umatku yang mengatakan bahawa Al-Quran adalah makhluk, sesiapa yang mengatakannya dari kalangan mereka,sesungguhnya dia telah kafir terhadap Allah yang maha agung dan isterinya tertalak pada saat itu, kerana seorang wanita yang beriman tidak seharusnya berada di bawah seorang lelaki (suami) yang kafir kecuali telah didahului dengan ucapan’(kecuali lelaki yang terlepas perkataannya,tidak sengaja)",
+        "perawi" : "Anas",
+        "bab" : ["Bab Quran"],
+        "kata kunci" : ["Quran"],
+        "status" : "Palsu",
+        "komen" : "Pada sanad hadith ini ada perawi yang tidak dikenali salah seorang adalah al-Rabi’ dan hadith ini adalah palsu"
+    },
+]
