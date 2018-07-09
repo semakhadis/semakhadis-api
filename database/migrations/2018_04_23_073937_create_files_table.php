@@ -23,7 +23,7 @@ class CreateFilesTable extends Migration
             $table->integer('created_by')->comment('The user who upload the file- FK users');
             // $table->integer('reference_id')->nullable()->comment('The reference id of the class');
             // $table->string('reference_type',50)->nullable()->comment('the reference class');
-            $table->morphs('referenceable')->comment('the reference class');
+            $table->morphs('referenceable');//->comment('the reference class')
             $table->timestamps();
         });
     }
